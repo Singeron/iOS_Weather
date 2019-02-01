@@ -4,14 +4,13 @@ import UIKit
 
 class FilterViewController: UITableViewController, UISearchBarDelegate {
     
-    var friends = [String]()
+    var cities = [String]()
     
     // создаем массив групп
     var group = [
         "Работа",
         "Отпуск",
-        "Партнеры",
-        "Друзья",
+        "Дом"
         ]
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,16 +86,16 @@ class FilterViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friends.count
+        return cities.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // получаем пул ячеек
         let cell = tableView.dequeueReusableCell(withIdentifier: "Filter", for: indexPath) as! FilterCell
-        // получаем данные друга для конкретной строки
-        let friend = friends[indexPath.row]
-        // устанавливаем данные друга в значение ячейки
-        cell.name.text = friend
+        // получаем данные города для конкретной строки
+        let city = cities[indexPath.row]
+        // устанавливаем данные города в значение ячейки
+        cell.name.text = city
         
         return cell
     }

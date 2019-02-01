@@ -2,9 +2,9 @@
 
 import UIKit
 
-class MyFriendsController: UITableViewController {
+class MyCitiesController: UITableViewController {
     
-    var friends = [String]()
+    var cities = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,44 +19,44 @@ class MyFriendsController: UITableViewController {
     // определяем количество столбцов
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friends.count
+        return cities.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // получаем пул ячеек
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyFriendCell", for: indexPath) as! MyFriendsCell
-        // получаем данные друга для конкретной строки
-        let friend = friends[indexPath.row]
-        // устанавливаем данные друга в значение ячейки
-        cell.friendName.text = friend
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCityCell", for: indexPath) as! MyCitiesCell
+        // получаем данные города для конкретной строки
+        let city = cities[indexPath.row]
+        // устанавливаем данные города в значение ячейки
+        cell.cityName.text = city
         
         return cell
     }
     
-    @IBAction func addFriends(segue: UIStoryboardSegue) {
+    @IBAction func addCities(segue: UIStoryboardSegue) {
         // проверяем идентификатор сегуи чтобы убедиться, что это нужный переход
-        guard segue.identifier == "addFriends" else { return }
+        guard segue.identifier == "addCities" else { return }
         // получаем ссылку на контроллер с которого осуществлен переход
-        let allFriendsController = segue.source as! AllFriendsController
+        let allCitiesController = segue.source as! AllCitiesController
         // получаем индекс выделенной ячейки
-        guard let indexPath = allFriendsController.tableView.indexPathForSelectedRow else { return }
-        // получаем данные друга по индексу
-        let friend = allFriendsController.friends[indexPath.row]
+        guard let indexPath = allCitiesController.tableView.indexPathForSelectedRow else { return }
+        // получаем данные города по индексу
+        let city = allCitiesController.cities[indexPath.row]
         //проверяем на дубли список друзей
-        guard !friends.contains(friend) else { return }
-        // добавляем друга в список выбранных городов
-        friends.append(friend)
+        guard !cities.contains(city) else { return }
+        // добавляем город в список выбранных городов
+        cities.append(city)
         //обновляем таблицу
         tableView.reloadData()
     }
     
-    //функция для удаления друзей из списка выбранных
+    //функция для удаления городов из списка выбранных
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // если была нажата кнопка "Удалить"
         if editingStyle == .delete {
-            // удаляем друга из массива
-            friends.remove(at: indexPath.row)
-            // удаляем друга из таблицы
+            // удаляем город из массива
+            cities.remove(at: indexPath.row)
+            // удаляем город из таблицы
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

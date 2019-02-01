@@ -2,18 +2,18 @@
 
 import UIKit
 
-class AllFriendsController: UITableViewController {
+class AllCitiesController: UITableViewController {
 
-    // создаем массив друзей
-    var friends = [
-        "Иван",
-        "Дмитрий",
-        "Владимир",
-        "Илья",
-        "Денис",
+    // создаем массив городов
+    var cities = [
+        "Москва",
+        "Берлин",
+        "Парим",
+        "Рим",
+        "Лондон",
     ]
     
-    // добавить картинки друзей из ассетов!!!
+    // добавить картинки погоды из ассетов!!!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +25,16 @@ class AllFriendsController: UITableViewController {
     }
 // определяем количество строк
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        return cities.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // получаем пул ячеек
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! AllFriendsCell
-        // получаем данные по другу для конкретной строки
-        let friend = friends[indexPath.row]
-        // устанавливаем данные по другу в значение ячейки
-        cell.friendName.text = friend
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! AllCitiesCell
+        // получаем данные по городу для конкретной строки
+        let city = cities[indexPath.row]
+        // устанавливаем данные по городу в значение ячейки
+        cell.cityName.text = city
         
         return cell
     }

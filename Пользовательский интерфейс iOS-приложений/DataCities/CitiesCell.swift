@@ -2,7 +2,7 @@
 
 import UIKit
 
-class FriendsCell: UICollectionViewCell {
+class CitiesCell: UICollectionViewCell {
     
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var name: UILabel!

@@ -2,9 +2,9 @@
 
 import UIKit
 
-//private let reuseIdentifier = "AboutFriendCell" - эта константа не нужна
+//private let reuseIdentifier = "AboutCitiesCell" - эта константа не нужна
 
-class FriendsViewController: UICollectionViewController {
+class CitiesViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +24,10 @@ class FriendsViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // получаем пул ячеек
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AboutFriendCell", for: indexPath) as! FriendsCell
-        // устанавливаем друга в значение ячейки
-        cell.name.text = "Иван"
-        cell.group.text = "Работа"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AboutCitiesCell", for: indexPath) as! CitiesCell
+        // устанавливаем город в значение ячейки
+        cell.name.text = "Рим"
+        cell.group.text = "Любимые"
         
         return cell
     }

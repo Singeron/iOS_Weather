@@ -2,9 +2,9 @@
 
 import UIKit
 
-class MyFriendsCell: UITableViewCell {
+class AllCitiesCell: UITableViewCell {
     
-    @IBOutlet weak var friendName: UILabel!
+    @IBOutlet weak var cityName: UILabel! // вывели название в ячейку
     
     override func awakeFromNib() {
         super.awakeFromNib()
